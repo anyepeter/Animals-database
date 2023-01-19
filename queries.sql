@@ -17,6 +17,17 @@ SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT * FROM animals WHERE weight_kg >= 10.40 and weight_kg <= 17.30;
 
 /*transactions*/
+
+BEGIN;
+
+UPDATE animals
+SET species = 'unspecified';
+
+ROLLBACK;
+
+
+BEGIN;
+
 UPDATE animals
 SET species = 'digimon'
 WHERE name LIKE '%mon';
@@ -24,9 +35,16 @@ WHERE name LIKE '%mon';
 
 UPDATE animals
 SET species = 'pokemon'
-WHERE name NOT LIKE '%mon';
+WHERE species IS NULL;
 
+COMMIT;
+
+BEGIN;
 DELETE FROM animals;
+ROLLBACK;
+
+
+BEGIN;
 
 DELETE FROM animals
 WHERE date_of_birth > '2022-01-01';
