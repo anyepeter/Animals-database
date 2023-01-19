@@ -9,3 +9,5 @@ neutered BOOLEAN,
 weight_kg DECIMAL(10,2)
 );
 
+ALTER TABLE animals 
+ADD species VARCHAR(100);
