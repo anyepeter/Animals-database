@@ -75,15 +75,6 @@ SELECT MAX(weight_kg), MIN(weight_kg), species FROM animals GROUP BY species;
 
 SELECT AVG(escape_attempts) AS escape_attempts, species FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
 
--- Modify your inserted animals so it includes the species_id value:
-UPDATE animals 
-SET species_id = 2
-WHERE name LIKE '%mon';
-
-UPDATE animals 
-SET species_id = 1
-WHERE species_id IS NULL;
-
 --queries using JOIN
 -- What animals belong to Melody Pond?
 SELECT name AS "animal name" FROM animals INNER JOIN owners 
