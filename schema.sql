@@ -25,3 +25,13 @@ CREATE TABLE species (
 id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 name VARCHAR(100)
 );
+
+/*modify the animals table */
+ALTER TABLE animals
+DROP species;
+
+ALTER TABLE animals
+ADD species_id INT REFERENCES species;
+
+ALTER TABLE animals 
+ADD owner_id INT REFERENCES owners(id);
