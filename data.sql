@@ -41,3 +41,25 @@ VALUES('Sam Smith', 34),
 INSERT INTO species (name)
 VALUES ('Pokemon'),
 ('Digimon');
+
+-- Modify your inserted animals to include owner information (owner_id):
+
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+WHERE name = 'Agumon';
+
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+WHERE name = 'Gabumon' OR name = 'Pikachu';
+
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
+WHERE name = 'Devimon' OR name = 'Plantmon';
+
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+WHERE name IN ('Angemon', 'Boarmon');
