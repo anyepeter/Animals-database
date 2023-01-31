@@ -208,3 +208,6 @@ SELECT species.name AS "species", COUNT(animals.species_id)
   WHERE vets.name = 'Maisy Smith'
   GROUP BY species.name
   ORDER BY count DESC LIMIT 1;
+
+
++
